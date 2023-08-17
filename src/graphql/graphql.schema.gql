@@ -1,0 +1,77 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Network {
+  """"""
+  chainId: ID!
+
+  """"""
+  name: String!
+}
+
+type User {
+  """"""
+  address: ID!
+
+  """"""
+  name: String!
+  tokens: [Token!]!
+}
+
+type Token {
+  """"""
+  address: ID!
+
+  """"""
+  name: String!
+
+  """"""
+  balance: String!
+}
+
+type Query {
+  getAllNetworks: [Network!]!
+  getNetwork(input: FindNetworkInput!): Network!
+  getAllUsers: [User!]!
+  getUser(address: ID!): User!
+  getUser_Query(user_query: FindUserQuery!): User!
+}
+
+input FindNetworkInput {
+  """"""
+  chainId: ID
+
+  """"""
+  name: String
+}
+
+input FindUserQuery {
+  """"""
+  address: ID!
+
+  """"""
+  name: String!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): Boolean!
+  updateUser(updateUserInput: UpdateUserInput!): Boolean!
+  removeUser(address: ID!): Boolean!
+}
+
+input CreateUserInput {
+  """"""
+  address: ID!
+
+  """"""
+  name: String!
+}
+
+input UpdateUserInput {
+  """"""
+  address: ID
+
+  """"""
+  name: String
+}
